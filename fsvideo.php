@@ -184,11 +184,38 @@
             margin-left: 52rem;
             z-index: -9977;
             margin-top: 31.25rem;
-
         }
     </style>
-
     <!--👆👆主要页面、右上、浩瀚银河新图标+理念png和视频的设置-->
+    <style> 
+        .black_overlay{
+            display: none;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            z-index:1001;
+            -moz-opacity: 0.8;
+            opacity:.80;
+            filter: alpha(opacity=88);
+            z-index: -999;
+        }
+        .white_content {
+            display: none;
+            position: absolute;
+            top: 15%;
+            left: 20%;
+            width: 15%;
+            height: 15%;
+            padding: 1.25rem;
+            border: 1.25rem solid orange;
+            background-color: rgba(0,0,0,0);
+            z-index:1002;
+            overflow: auto;
+        }
+    </style>
+    <!--👆👆按钮点击后弹窗-->
     <style type="text/css">
         @media screen and (orientation: portrait) {
             body {
@@ -238,13 +265,57 @@
             padding-bottom: 0rem;
             background: transparent;
         }
-
-
         .dropdown2:hover .dropdown-content2 {
             display: block;
         }
     </style>
     <!--👆👆下拉条的适配和设置-->
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        
+        .loading >p {
+            position:absolute;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
+            margin:auto;
+            height:1.875rem;
+            width:7.5rem;
+        }
+        .loading >p i {
+            display: block;
+            float:left;
+            margin:0 0.3125rem;
+            width:0.3125rem;
+            height:1.875rem;
+            background: #f39c12;
+            transform:scaleY(0.4);
+            animation:loading 1s cubic-bezier(0.46, 0.03, 0.52, 0.96) infinite alternate;
+        }
+        
+        .loading >p i:nth-child(2){animation-delay:0.1s;}
+        .loading >p i:nth-child(3){animation-delay:0.2s;}
+        .loading >p i:nth-child(4){animation-delay:0.3s;}
+        .loading >p i:nth-child(5){animation-delay:0.4s;}
+        
+    @keyframes loading{
+           0,40%,100%{transform:scaleY(0.3);}
+           20%{transform:scaleY(1);}
+    }
+    </style>
+    <!--👆👆弹窗JS-->
+    <script type="text/javascript">
+        $(function(){})
+        function openDialog(){
+            document.getElementById('light').style.display='block';
+            document.getElementById('fade').style.display='block'
+        }
+    </script>
+    
 </head>
 
 <body>
@@ -260,34 +331,28 @@
             <div class="main-header">
                 <!--div class="logo">
                     <a href="https://fsvideo.haohanyh.com">
-                    <g transform="translate(0,0)" class="logo-group">
-                        <g transform="translate(145,64.97999954223633)" class="logo-icon"><svg version="1.0"
-                                xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"
-                                color-interpolation-filters="sRGB" xmlns:xlink="http://www.w3.org/1999/xlink" width="80"
-                                height="80"><svg id="36020e71-8bf7-4473-8765-e61dd9d721f0" data-name="图层 1"
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    viewBox="0 0 500 500">
-                                    <defs>
-                                        <linearGradient id="172db427-e64d-40c2-9c3d-39510480e8e9" x1="373.51" y1="132.9"
-                                            x2="224.25" y2="277.95" gradientUnits="userSpaceOnUse">
-                                            <stop offset="0" stop-color="#00cbfd" stop-opacity="0.6"></stop>
-                                            <stop offset="1" stop-color="#00cbfd"></stop>
-                                        </linearGradient>
-                                    </defs>
-                                    <rect x="54.37" y="213.1" width="390.83" height="152.96" rx="76.48" ry="76.48"
-                                        fill="#0377ff"></rect>
-                                    <circle cx="191.69" cy="232.81" r="89.98" fill="#0377ff"></circle>
-                                    <circle cx="298.88" cy="205.42" r="104.07"
-                                        fill="url(#172db427-e64d-40c2-9c3d-39510480e8e9)"></circle>
-                                    <path
-                                        d="M426.38,73.62A250.11,250.11,0,0,0,174.51,12.15h0a13.62,13.62,0,0,0-1.53.49A14.22,14.22,0,0,0,178,40.15a13.35,13.35,0,0,0,3.49-.44h.06a13.5,13.5,0,0,0,1.7-.55A220.06,220.06,0,0,1,250,28.84c121.94,0,221.15,99.21,221.15,221.17S371.94,471.15,250,471.15,28.85,372,28.85,250A220.62,220.62,0,0,1,101.36,86.39a.6.6,0,0,0,.12-.11c.24-.2.47-.43.71-.64l0,0A14.22,14.22,0,0,0,92.31,61.2a14.06,14.06,0,0,0-8.81,3.06h0a12.46,12.46,0,0,0-1.37,1.24l-.06.06q-4.31,3.9-8.44,8.05A249.44,249.44,0,0,0,426.38,426.39a249.45,249.45,0,0,0,0-352.77Z"
-                                        fill="#00cbfd">
-                                    </path>
+                        <g transform="translate(0,0)" class="logo-group">
+                            <g transform="translate(145,64.97999954223633)" class="logo-icon">
+                                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" color-interpolation-filters="sRGB" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80">
+                                    <svg id="36020e71-8bf7-4473-8765-e61dd9d721f0" data-name="1st tuceng" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500">
+                                        <defs>
+                                            <linearGradient id="172db427-e64d-40c2-9c3d-39510480e8e9" x1="373.51" y1="132.9" x2="224.25" y2="277.95" gradientUnits="userSpaceOnUse">
+                                                <stop offset="0" stop-color="#00cbfd" stop-opacity="0.6"></stop>
+                                                <stop offset="1" stop-color="#00cbfd"></stop>
+                                            </linearGradient>
+                                        </defs>
+                                        <rect x="54.37" y="213.1" width="390.83" height="152.96" rx="76.48" ry="76.48" fill="#0377ff"></rect>
+                                        <circle cx="191.69" cy="232.81" r="89.98" fill="#0377ff"></circle>
+                                        <circle cx="298.88" cy="205.42" r="104.07" fill="url(#172db427-e64d-40c2-9c3d-39510480e8e9)"></circle>
+                                        <path
+                                            d="M426.38,73.62A250.11,250.11,0,0,0,174.51,12.15h0a13.62,13.62,0,0,0-1.53.49A14.22,14.22,0,0,0,178,40.15a13.35,13.35,0,0,0,3.49-.44h.06a13.5,13.5,0,0,0,1.7-.55A220.06,220.06,0,0,1,250,28.84c121.94,0,221.15,99.21,221.15,221.17S371.94,471.15,250,471.15,28.85,372,28.85,250A220.62,220.62,0,0,1,101.36,86.39a.6.6,0,0,0,.12-.11c.24-.2.47-.43.71-.64l0,0A14.22,14.22,0,0,0,92.31,61.2a14.06,14.06,0,0,0-8.81,3.06h0a12.46,12.46,0,0,0-1.37,1.24l-.06.06q-4.31,3.9-8.44,8.05A249.44,249.44,0,0,0,426.38,426.39a249.45,249.45,0,0,0,0-352.77Z"
+                                            fill="#00cbfd">
+                                        </path>
+                                    </svg>
                                 </svg>
-                            </svg>
+                            </g>
                         </g>
-                    </g>
-                </a>
+                    </a>
                 </div-->
                 <div class="nav">
                     <ul>
@@ -306,8 +371,9 @@
                                 <div class="dropdown-content2">
                                     <a href="https://fsvideo.haohanyh.com">
                                         <form action="upload_file.php" method="post" enctype="multipart/form-data">
-                                            <h6>↓点击上传视频文件↓仅限WEBM格式文件</h6><input type="file" name="file" id="file" />
-                                            <input type="submit" name="submit" value="Submit" />
+                                            <h6>↓点击上传视频文件↓仅限WEBM格式文件</h6>
+                                            <input type="file" name="file" id="file"/>
+                                            <input type="submit" name="submit" value="点我上传" onclick="openDialog()"/>
                                         </form>
                                     </a>
                                 </div>
@@ -325,6 +391,17 @@
                     <img src="https://pic-eu1.2.haohanyh.com/2021/07/08/b8a6534f5a068.png" alt="haohanyh-2.png"
                         title="Opening Web Ecology 让浩瀚银河开启“开放互联网生态”理念吧~" class="haohanyh-new-2-png-in-this" style="z-index: -9977;" />
                 </div-->
+            </div>
+        </div>
+        <div id="light" class="white_content">
+            <div class="loading">
+                <p>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </p>
             </div>
         </div>
     </div>
