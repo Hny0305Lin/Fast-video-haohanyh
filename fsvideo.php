@@ -13,185 +13,18 @@
         content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <!--👆👆移动端适配-->
     <!--👇👇调整title两种方案，一种是滚动，一种是不变+离开时改变。-->
-    <script type="text/javascript">
-        var msg = document.title;
-        msg = "…" + msg;
-        pos = 0;
-
-        function scrollMSG() {
-            document.title = msg.substring(pos, msg.length) + msg.substring(0, pos);
-            pos++;
-            if (pos > msg.length) pos = 0
-            window.setTimeout("scrollMSG()", 400);
-        }
-        scrollMSG();
-    </script>
+    <script type="text/javascript" src="./js/title-gundong.js"></script>
     <!--👆👆title滚动js-->
-    <script>
+    <!--script>
         document.addEventListener('visibilitychange',function(){if(document.visibilityState=='hidden'){normal_title=document.title;document.title='₍ ᐢ.⌄.ᐢ ₎ ꜆˖.♡快回来~不要让人家担心♥';}else{document.title=normal_title;}});
-    </script>
+    </script-->
     <!--👆👆离开网页时调整title-->
     <!--👆👆调整title两种方案，一种是滚动，一种是不变+离开时改变。-->
-    <style type="text/css" media="screen">
-        a:link {
-            text-decoration: none;
-            /* 指正常的未被访问过的链接*/
-        }
-
-        a:visited {
-            text-decoration: none;
-            /*指已经访问过的链接*/
-        }
-
-        a:hover {
-            text-decoration: none;
-            /*指鼠标在链接*/
-        }
-
-        a:active {
-            text-decoration: none;
-            /* 指正在点的链接*/
-        }
-
-        a {
-            color: rgb(255, 255, 255)
-        }
-
-        a:hover {
-            color: rgb(255, 0, 149)
-        }
-
-        /* 鼠标经过悬停字体颜色 */
-
-        body,
-        ul,
-        p {
-            margin: 0;
-            padding: 0;
-        }
-
-        ul {
-            list-style-type: none;
-        }
-
-        html,
-        body {
-            height: 100%;
-        }
-
-        #wrap {
-            position: relative;
-            width: 100%;
-            min-width: 1200px;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .main-body {
-            position: absolute;
-            top: 0;
-            right: 0rem;
-            left: 0rem;
-        }
-
-        .main-header {
-            width: 100%;
-            height: 6.25rem;
-        }
-
-        .logo {
-            float: left;
-            width: 18.75rem;
-            text-align: center;
-            line-height: 6.25rem;
-            margin-top: 1.5625rem;
-        }
-
-        .item {
-            float: right;
-            color: #fff;
-            margin-top: 2.675rem;
-            margin-right: 1.875rem;
-            cursor: pointer;
-        }
-
-
-        .main-content {
-            position: relative;
-            width: 100%;
-            height: 65%;
-        }
-
-        .line {
-            position: absolute;
-            right: 9.375rem;
-            bottom: 8.75rem;
-        }
-
-
-        .video-back {
-            /*设置视频最小宽度和高度 这个设不设置没有什么影响 */
-            min-width: 100%;
-            min-height:100%;
-            /**/
-            width: 100%;
-            height: 100%;
-            /*生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。可以根据实际情况修改*/
-            position: absolute;
-            /*这里我试了一下好像只要是矩形的四个角的的点都行,也就是说right:0;bottom:0;也可以*/
-            left: 0;
-            top: 0;
-            /*将视频放在元素的堆叠顺序最底层，以防覆盖其他东西*/
-            z-index: -9999;
-            /*被替换的内容正好填充元素的内容框。整个对象将完全填充此框。如果对象的宽高比与内容框不相匹配，那么该对象将被拉伸以适应内容框。*/
-            object-fit: fill;
-        }
-
-        .item {
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            color: pink;
-            font-size: 0.875rem;
-        }
-
-
-        footer {
-            width: 100%;
-            text-align: center;
-            font-size: 0.875rem;
-            color: #fff;
-            /*生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。可以根据实际情况修改*/
-            position: absolute;
-            /*这里我试了一下好像只要是矩形的四个角的的点都行,也就是说right:0;bottom:0;也可以*/
-            left: 0;
-            /*被替换的内容正好填充元素的内容框。整个对象将完全填充此框。如果对象的宽高比与内容框不相匹配，那么该对象将被拉伸以适应内容框。*/
-            object-fit: fill;
-            height: 5.625rem;
-            bottom: 5.625rem;
-        }
-
-
-
-        .nav .dropdown2:hover .dropdown2 {
-            float: right;
-            margin-right: 6.25rem;
-            font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif, Arial, "PingFang SC", "Heiti SC";
-        }
-
-        div#scrollbar.dropdown-content2 a {
-            font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif, Arial, "PingFang SC", "Heiti SC";
-        }
-
-        img.haohanyh-new-2-png-in-this {
-            left: 0;
-            top: 0;
-            width: 18.75rem;
-            height: 7.625rem;
-            margin-block-start: 39rem;
-            margin-left: 52rem;
-            z-index: -9977;
-            margin-top: 31.25rem;
-        }
-    </style>
+    <script type="text/javascript" src="./js/tanchuang.js"></script>
+    <!--👆👆弹窗JS1-->
+    <script type="text/javascript" src="./js/tanchuang2.js"></script>
+    <!--👆👆弹窗JS2——————在等待弹窗里写自动生成一句话-->
+    <link rel="stylesheet" type="text/css" href="./css/zhuye.css">
     <!--👆👆主要页面、右上、浩瀚银河新图标+理念png和视频的设置-->
     <style>
         .black_overlay{
@@ -220,67 +53,11 @@
             z-index:1002;
             overflow: auto;
         }
-    </style>
-    <!--👆👆按钮点击后弹窗-->
-    <style type="text/css">
-        @media screen and (orientation: portrait) {
-            body {
-                position: absolute;
-                width: 100vh;
-                height: 100vw;
-                top: 0;
-                left: 100vw;
-                -webkit-transform: rotate(90deg);
-                -moz-transform: rotate(90deg);
-                -ms-transform: rotate(90deg);
-                transform: rotate(90deg);
-                transform-origin: 0% 0%;
-            }
-        }
-
-        @media screen and (orientation: landscape) {
-            body {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100vw;
-                height: 100vh;
-            }
-        }
-    </style>
-    <!--👆👆移动端适配-->
-    <style>
-        .dropdown2 {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content2 {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 10rem;
-            box-shadow: 0rem 0.5rem 1rem 0rem rgba(0, 0, 0, 0.2);
-            padding: 0.75rem 1rem;
-            z-index: 1;
-            top: 0.945rem;
-            right: 0.005rem;
-            padding-left: 1rem;
-            padding-right: 0rem;
-            padding-top: 0rem;
-            padding-bottom: 0rem;
-            background: transparent;
-        }
-        .dropdown2:hover .dropdown-content2 {
-            display: block;
-        }
-    </style>
-    <!--👆👆下拉条的适配和设置-->
-    <style>
         * {
             margin:0;
             padding:0;
         }
+        
         .loading >p {
             position:absolute;
             left:0;
@@ -301,48 +78,28 @@
             transform:scaleY(0.4);
             animation:loading 1s cubic-bezier(0.46, 0.03, 0.52, 0.96) infinite alternate;
         }
+
         .loading >p i:nth-child(2){animation-delay:0.1s;}
         .loading >p i:nth-child(3){animation-delay:0.2s;}
         .loading >p i:nth-child(4){animation-delay:0.3s;}
         .loading >p i:nth-child(5){animation-delay:0.4s;}
-    @keyframes loading{
-            0,40%,100%{transform:scaleY(0.3);}
-            20%{transform:scaleY(1);}
-    }
-    </style>
-    <!--👆👆弹窗JS-->
-    <script type="text/javascript">
-        $(function(){})
-        function openDialog(){
-            document.getElementById('light').style.display='block';
-            document.getElementById('fade').style.display='block'
+        @keyframes loading{
+           0,40%,100%{transform:scaleY(0.3);}
+           20%{transform:scaleY(1);}
         }
-    </script>
-    <!--👆👆弹窗JS-->
-    <style type="text/css">
         h4#update-git, h4#hitokoto {
             color: orangered;
         }
     </style>
-    <!--👆👆可以在等待弹窗里写更新信息的字体颜色-->
-    <script>
-        var xhr = new XMLHttpRequest();
-        xhr.open('get', 'https://v1.hitokoto.cn/?c=g ');
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-            var data = JSON.parse(xhr.responseText);
-            var hitokoto = document.getElementById('hitokoto');
-            hitokoto.innerText = data.hitokoto;
-            }
-        }
-        xhr.send();
-    </script>
-    <!--👆👆也可以在等待弹窗里写自动生成一句话-->
+    <!--👆👆按钮点击后弹窗👆👆弹窗JS+可以在等待弹窗里写更新信息的字体颜色-->
+    <link rel="stylesheet" type="text/css" href="./css/mobile.css">
+    <!--👆👆移动端适配-->
+    <link rel="stylesheet" type="text/css" href="./css/xialatiao.css">
+    <!--👆👆下拉条的适配和设置-->
 </head>
-
 <body>
     <div id="wrap">
-        <!-- 视频背景,目前使用自主宣传片背景 -->
+        <!-- 视频背景,目前使用抖音2018年广告片背景 -->
         <div bg-video style="text-align: center">
             <video class="video-back" data-autoplay="true" loop="loop" autoplay="autoplay" muted
                 src="https://fsvideo.haohanyh.com/video/new-tvc_889b57b.webm" type="video/mp4">抱歉，你的浏览器不支持内嵌视频
