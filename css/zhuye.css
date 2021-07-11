@@ -1,0 +1,152 @@
+a:link {
+    text-decoration: none;
+    /* 指正常的未被访问过的链接*/
+}
+
+a:visited {
+    text-decoration: none;
+    /*指已经访问过的链接*/
+}
+
+a:hover {
+    text-decoration: none;
+    /*指鼠标在链接*/
+}
+
+a:active {
+    text-decoration: none;
+    /* 指正在点的链接*/
+}
+
+a {
+    color: rgb(255, 255, 255)
+}
+
+a:hover {
+    color: rgb(255, 0, 149)
+}
+
+/* 鼠标经过悬停字体颜色 */
+
+body,
+ul,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+#wrap {
+    position: relative;
+    width: 100%;
+    min-width: 1200px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.main-body {
+    position: absolute;
+    top: 0;
+    right: 0rem;
+    left: 0rem;
+}
+
+.main-header {
+    width: 100%;
+    height: 6.25rem;
+}
+
+.logo {
+    float: left;
+    width: 18.75rem;
+    text-align: center;
+    line-height: 6.25rem;
+    margin-top: 1.5625rem;
+}
+
+.item {
+    float: right;
+    color: #fff;
+    margin-top: 2.675rem;
+    margin-right: 1.875rem;
+    cursor: pointer;
+        }
+
+.main-content {
+    position: relative;
+    width: 100%;
+    height: 65%;
+}
+
+.line {
+    position: absolute;
+    right: 9.375rem;
+    bottom: 8.75rem;
+}
+
+.video-back {
+    /*设置视频最小宽度和高度 这个设不设置没有什么影响 */
+    min-width: 100%;
+    min-height:100%;
+    /**/
+    width: 100%;
+    height: 100%;
+    /*生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。可以根据实际情况修改*/
+    position: absolute;
+    /*这里我试了一下好像只要是矩形的四个角的的点都行,也就是说right:0;bottom:0;也可以*/
+    left: 0;
+    top: 0;
+    /*将视频放在元素的堆叠顺序最底层，以防覆盖其他东西*/
+    z-index: -9999;
+    /*被替换的内容正好填充元素的内容框。整个对象将完全填充此框。如果对象的宽高比与内容框不相匹配，那么该对象将被拉伸以适应内容框。*/
+    object-fit: fill;
+}
+
+.item {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: pink;
+    font-size: 0.875rem;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #fff;
+    /*生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。可以根据实际情况修改*/
+    position: absolute;
+    /*这里我试了一下好像只要是矩形的四个角的的点都行,也就是说right:0;bottom:0;也可以*/
+    left: 0;
+    /*被替换的内容正好填充元素的内容框。整个对象将完全填充此框。如果对象的宽高比与内容框不相匹配，那么该对象将被拉伸以适应内容框。*/
+    object-fit: fill;
+    height: 5.625rem;
+    bottom: 5.625rem;
+    }
+.nav .dropdown2:hover .dropdown2 {
+    float: right;
+    margin-right: 6.25rem;
+    font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif, Arial, "PingFang SC", "Heiti SC";
+}
+
+div#scrollbar.dropdown-content2 a {
+    font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif, Arial, "PingFang SC", "Heiti SC";
+}
+
+img.haohanyh-new-2-png-in-this {
+    left: 0;
+    top: 0;
+    width: 18.75rem;
+    height: 7.625rem;
+    margin-block-start: 39rem;
+    margin-left: 52rem;
+    z-index: -9977;
+    margin-top: 31.25rem;
+}
