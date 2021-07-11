@@ -198,7 +198,7 @@
     .wrapper {
         position: relative;
     }
-
+    
     #input {
         position: absolute;
         top: 0;
@@ -281,7 +281,8 @@
                 define("AAC", "非法的文件格式,仅限于webm后缀文件。或您还没上传文件。<br>");
                 //要记住小可爱们的UA做更完整的数据日志记录哦~
                 global $_SERVER;
-                $httpuseragent =  $_SERVER['HTTP_USER_AGENT'] . "浏览器标识|";
+                // $httpuseragent =  $_SERVER['HTTP_USER_AGENT'] . "浏览器标识|";
+                $httpuseragent =  $_SERVER['HTTP_USER_AGENT'];
                 //割~~~~~~~~~~~~~~~
                 global $ip;
                 if (getenv("HTTP_CLIENT_IP"))
@@ -303,11 +304,32 @@
                 $guid = '{' . substr($hash, 0, 8) . '-' .substr($hash, 8, 4) . '-' . substr($hash, 12, 4) . '-' . substr($hash, 16, 4) . substr($hash, 20, 12).'}';
                 $all = $rand.$newtime.$datahttpuser;
                 $onlyid = base_convert($all,10,36);//把10进制转为36进制的唯一ID
-                $onlyid2 = $onlyid.$guid."←用户id|";
+                // $onlyid2 = $onlyid.$guid."←用户id|";
+                $onlyid2 = $onlyid.$guid;
                 //割~~~~~~~~~~~~~~~
                 $time= date('Y-m-d H:i:s',time());
-                //割~~~~~~~~~~~~~~~
                 $_InternatFILES = $_FILES["file"]["name"];
+                $_InternatFILESSIZE = $_FILES["file"]["size"] / 1024;
+                include './mysql.php';
+                $mysqli = mysqli_connect($host,$user,$passwd,$dbname);
+                $filemd5data = md5_file($_FILES["file"]["tmp_name"]);
+                // $sql = $mysqli->query("SELECT `id` FROM `FileLog` WHERE `md5` = $filemd5data"); //sql查询语句
+                // $row_cnt = $sql->num_rows;
+                // echo ($row_cnt);
+                // // $sql->close();
+                // if(!$row_cnt >1){
+                //     echo ('已经有了');
+                // } else {
+                $sql1 = $mysqli->query("SELECT * FROM `FileLog` WHERE `md5` = '$filemd5data'");
+                $num=$sql->num_rows;
+                if($num!=0) {
+                    echo("已经有了干");
+                } else {
+                    $llq=str_replace(';','',$httpuseragent);
+                    $sql = $mysqli->query("INSERT INTO `FileLog`(`filen_name`, `filen_size`, `user_id`, `time`, `user_ip`, `user_browser`, `md5`) VALUES ('$_InternatFILES','$_InternatFILESSIZE','$onlyid2','$time','$ip','$llq','$filemd5data')"); //sql插入语句
+                    }
+                }
+                //割~~~~~~~~~~~~~~~
                 $filename = $_InternatFILES;
                 $_FILEStype = $_FILES["file"]["type"];
                 $allowedExts = array("webm");
@@ -341,10 +363,9 @@
                 {
                     echo AAC;
                 }
-                //终于到最后了，割~
-                echo "您此时IP为:" . $ip;
-                echo "<br>您此时唯一可识别id为:" . $onlyid2;
-            }
+            //终于到最后了，割~
+            echo "您此时IP为:" . $ip;
+            echo "<br>您此时唯一可识别id为:" . $onlyid2;
         ?>
     </div>
     <div class="row">
@@ -394,7 +415,7 @@
         <button class="button button2" onclick="myFunction3()">BBCode复制</button>
         <button class="button button2" onclick="myFunction4()">分享视频走廊</button>
         <?php
-            echo "<button class=\"buttona button2\"><a href=\"$qqoutlink\">分享QQ和空间</a></button>"
+            echo "<button class=\"buttona button2\"><a href=\"$qqoutlink\">分享QQ和空间</a></button>";
         ?>
     </div>
     <div class="rightcolumn">
